@@ -21,7 +21,7 @@ export interface API_BaseEntry {
 export interface API_RootEntry extends API_BaseEntry {
   type: 'root';
   startCollapsed?: boolean;
-  children: StoryId[];
+  children: readonly StoryId[];
 
   /** @deprecated */
   isRoot: true;
@@ -34,7 +34,7 @@ export interface API_RootEntry extends API_BaseEntry {
 export interface API_GroupEntry extends API_BaseEntry {
   type: 'group';
   parent?: StoryId;
-  children: StoryId[];
+  children: readonly StoryId[];
 
   /** @deprecated */
   isRoot: false;
@@ -47,7 +47,7 @@ export interface API_GroupEntry extends API_BaseEntry {
 export interface API_ComponentEntry extends API_BaseEntry {
   type: 'component';
   parent?: StoryId;
-  children: StoryId[];
+  children: readonly StoryId[];
 
   /** @deprecated */
   isRoot: false;
@@ -64,7 +64,7 @@ export interface API_DocsEntry extends API_BaseEntry {
   /** @deprecated */
   kind: ComponentTitle;
   importPath: Path;
-  tags: Tag[];
+  tags: readonly Tag[];
   prepared: boolean;
   parameters?: {
     [parameterName: string]: any;
@@ -85,7 +85,7 @@ export interface API_StoryEntry extends API_BaseEntry {
   /** @deprecated */
   kind: ComponentTitle;
   importPath: Path;
-  tags: Tag[];
+  tags: readonly Tag[];
   prepared: boolean;
   parameters?: {
     [parameterName: string]: any;
